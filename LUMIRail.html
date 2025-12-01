@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>LUMI RAIL – Reklama w ruchu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+
+
+    .motion-demo {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 20px;
+}
+
+/* screens */
+.screen-frame {
+  width: 60px;
+  height: 120px;
+  background: linear-gradient(180deg, #1e3a5f 0%, #0f2744 100%);
+  border: 2px solid #10b981;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* animated train */
+.screen-content {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: -100%;
+  background: #fbbf24;
+  animation: trainPass 2.4s linear infinite;
+}
+
+/* delays per frame */
+.screen-frame:nth-child(1) .screen-content { animation-delay: 0s; }
+.screen-frame:nth-child(2) .screen-content { animation-delay: 0.4s; }
+.screen-frame:nth-child(3) .screen-content { animation-delay: 0.8s; }
+.screen-frame:nth-child(4) .screen-content { animation-delay: 1.2s; }
+.screen-frame:nth-child(5) .screen-content { animation-delay: 1.6s; }
+.screen-frame:nth-child(6) .screen-content { animation-delay: 2.0s; }
+
+@keyframes trainPass {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(350%);
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(350%);
+    opacity: 0;
+  }
+}
+
+
+
+
+    :root {
+      --bg-top: #020617;
+      --bg-bottom: #021827;
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.12);
+      --text-main: #e0f2fe;
+      --text-muted: #9ca3af;
+      --logo-yellow: #fbbf24;
+      --card-border: rgba(148, 163, 184, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at 20% 0%, #0b1120 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      width: 100%;
+      padding: 1.5rem 6vw;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    .logo span {
+      color: var(--logo-yellow);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HERO */
+
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 6vw 4rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(148, 163, 184, 0.2) 0, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(56, 189, 248, 0.15) 0, transparent 40%);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+     max-width: 960px;
+     position: relative;
+     z-index: 1;
+     margin: 0 auto;        /* center the block horizontally */
+     text-align: center;    /* center all text + button */
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .subtitle {
+      font-size: clamp(1.1rem, 1.7vw, 1.3rem);
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin-bottom: 3rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.1rem 2.8rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #051016;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.3),
+        0 24px 60px rgba(250, 204, 21, 0.45);
+      transition: transform 180ms ease, box-shadow 180ms ease, background 150ms ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.4),
+        0 32px 80px rgba(250, 204, 21, 0.6);
+      background: #facc15;
+    }
+
+    .cta-btn:active {
+      transform: translateY(0);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.5),
+        0 16px 40px rgba(250, 204, 21, 0.5);
+    }
+
+    /* WHY SECTION */
+
+    .why {
+      padding: 4rem 6vw 5rem;
+      background: radial-gradient(circle at 50% 0%, #020617 0, #020617 40%, #010a12 100%);
+    }
+
+    .why-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .why-title {
+      text-align: center;
+      font-size: clamp(2.2rem, 3.2vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 3rem;
+    }
+
+    .why-title span {
+      color: var(--accent);
+    }
+
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.5rem;
+    }
+
+    .benefit-tile {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2.4rem 2.2rem;
+      border-radius: 26px;
+      border: 1px solid var(--card-border);
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.8) 0, #020617 45%, #020617 100%);
+      text-decoration: none;
+      color: var(--text-main);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
+      transition:
+        transform 220ms ease,
+        box-shadow 220ms ease,
+        border-color 200ms ease,
+        background 220ms ease;
+      overflow: hidden;
+    }
+
+    .benefit-tile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 0%, var(--accent-soft), transparent 60%);
+      opacity: 0;
+      transition: opacity 220ms ease;
+      pointer-events: none;
+    }
+
+    .benefit-tile:hover {
+      transform: translateY(-8px) scale(1.03);
+      border-color: var(--accent);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.8),
+        0 30px 70px rgba(0, 0, 0, 0.85);
+    }
+
+    .benefit-tile:hover::before {
+      opacity: 1;
+    }
+
+    .tile-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .tile-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    .tile-desc {
+      font-size: 0.98rem;
+      color: var(--text-main);
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1024px) {
+      .tile-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1.25rem 1.5rem;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem 3rem;
+      }
+
+      .subtitle {
+        margin-bottom: 2.4rem;
+      }
+
+      .why {
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      .tile-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">LUMI <span>RAIL</span></div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Reklama w ruchu</h1>
+
+        <p class="subtitle">
+            Technologia LED synchronizowana z prędkością metra tworzy dynamiczne animacje
+            w tunelach warszawskiego metra.
+        </p>
+
+        <!-- MOTION DEMO INSERTED HERE -->
+        <div class="motion-demo">
+            <div class="screen-frame"><div class="screen-content"></div></div>
+            <div class="screen-frame"><div class="screen-content"></div></div>
+            <div class="screen-frame"><div class="screen-content"></div></div>
+            <div class="screen-frame"><div class="screen-content"></div></div>
+            <div class="screen-frame"><div class="screen-content"></div></div>
+            <div class="screen-frame"><div class="screen-content"></div></div>
+        </div>
+
+      
+      </div>
+    </section>
+    
+    <!-- WHY IT WORKS -->
+    <section class="why" id="why">
+      <div class="why-inner">
+        <h2 class="why-title">Dlaczego to <span>działa?</span></h2>
+
+        <div class="tile-grid">
+          <a class="benefit-tile" href="widocznosc.html">
+            <div class="tile-icon">🕒</div>
+            <div class="tile-title">Maksymalna widoczność</div>
+            <p class="tile-desc">
+              100% uwagi pasażerów podczas przejazdu — brak konkurencji z innymi bodźcami.
+            </p>
+          </a>
+
+          <a class="benefit-tile" href="skupienie.html">
+            <div class="tile-icon">⭐</div>
+            <div class="tile-title">Pełne skupienie</div>
+            <p class="tile-desc">
+              Zamknięta przestrzeń tunelu eliminuje rozpraszacze, kierując wzrok wprost na reklamę.
+            </p>
+          </a>
+
+          <a class="benefit-tile" href="innowacyjnosc.html">
+            <div class="tile-icon">✔️</div>
+            <div class="tile-title">Innowacyjność</div>
+            <p class="tile-desc">
+              Pierwszy tego typu format w Polsce — marki zyskują status pionierów technologii.
+            </p>
+          </a>
+
+          <a class="benefit-tile" href="zapamietywalnosc.html">
+            <div class="tile-icon">👁️</div>
+            <div class="tile-title">Wysoka zapamiętywalność</div>
+            <p class="tile-desc">
+              Dynamiczny przekaz pozostaje w pamięci znacznie dłużej niż statyczne reklamy.
+            </p>
+          </a>
+
+          <a class="benefit-tile" href="precyzja.html">
+            <div class="tile-icon">🎯</div>
+            <div class="tile-title">Precyzyjne targetowanie</div>
+            <p class="tile-desc">
+              Dobór linii, kierunków i godzin przejazdu pozwala dotrzeć dokładnie do wybranej grupy pasażerów.
+            </p>
+          </a>
+
+          <a class="benefit-tile" href="elastycznosc.html">
+            <div class="tile-icon">💡</div>
+            <div class="tile-title">Elastyczne formaty</div>
+            <p class="tile-desc">
+              Od krótkich spotów po storytelling — kreacje można łatwo testować, aktualizować i dostosowywać.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Elastyczne formaty – LUMI RAIL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-top: #020617;
+      --bg-bottom: #021827;
+      --accent: #facc15;
+      --text-main: #e0f2fe;
+      --text-muted: #9ca3af;
+      --logo-yellow: #fbbf24;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header { padding: 1.5rem 6vw; }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    .logo span { color: var(--logo-yellow); }
+
+    main {
+      flex: 1;
+      padding: 3rem 6vw 4rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .tagline {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 720px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 2.5rem;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .back-link span {
+      font-size: 1.2rem;
+      margin-right: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">LUMI <span>RAIL</span></div>
+  </header>
+
+  <main>
+    <h1>Elastyczne formaty</h1>
+    <div class="tagline">Kreacje, które łatwo zmieniasz i testujesz.</div>
+    <p>
+      Sekwencje animacji można skracać, wydłużać, podmieniać oraz testować
+      w wielu wariantach kreatywnych. Umożliwia to szybkie A/B testy,
+      sezonowe aktualizacje oraz płynne dopasowanie kampanii do innych
+      działań digital i OOH, bez konieczności kosztownej produkcji nośników.
+    </p>
+
+    <a href="LUMIRail.html" class="back-link">
+      <span>←</span> Powrót na stronę główną
+    </a>
+  </main>
+</body>
+</html>
