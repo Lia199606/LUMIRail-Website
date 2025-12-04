@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Innowacyjność – LUMI RAIL</title>
+  <title>Dlaczego jesteśmy najlepszym rozwiązaniem – LUMI RAIL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
@@ -13,6 +13,7 @@
       --text-main: #e0f2fe;
       --text-muted: #9ca3af;
       --logo-yellow: #fbbf24;
+      --card-bg: #020c1f;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,24 +42,76 @@
     main {
       flex: 1;
       padding: 3rem 6vw 4rem;
-      max-width: 960px;
+      max-width: 1040px;
       margin: 0 auto;
     }
 
     h1 {
       font-size: clamp(2rem, 3vw, 2.8rem);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       font-weight: 800;
     }
 
-    .tagline {
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 2rem;
+    .benefits-card {
+      margin-top: 0.5rem;
+      padding: 2.5rem 2.75rem;
+      background: var(--card-bg);
+      border-radius: 24px;
+      border: 1px solid rgba(250, 204, 21, 0.6);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.65);
     }
 
-    p {
-      font-size: 1rem;
+    .benefits-card-inner {
+      border-radius: 20px;
+      border: 1px solid rgba(248, 250, 252, 0.05);
+      padding: 2.25rem 2.25rem 2rem;
+    }
+
+    .benefits-title {
+      font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+      font-weight: 800;
+      color: #fefce8;
+      margin-bottom: 2.25rem;
+    }
+
+    .benefit-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 1.25rem;
+      row-gap: 0.25rem;
+      align-items: flex-start;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .benefit-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .benefit-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #0f172a;
+      font-size: 1.1rem;
+      margin-top: 0.2rem;
+    }
+
+    .benefit-heading {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #f9fafb;
+    }
+
+    .benefit-text {
+      grid-column: 2 / -1;
+      font-size: 0.98rem;
       line-height: 1.7;
       color: var(--text-muted);
       max-width: 720px;
@@ -78,6 +131,13 @@
       font-size: 1.2rem;
       margin-right: 0.4rem;
     }
+
+    @media (max-width: 640px) {
+      main { padding: 2.25rem 5vw 3rem; }
+      .benefits-card { padding: 1.75rem 1.5rem; }
+      .benefits-card-inner { padding: 1.75rem 1.25rem 1.5rem; }
+      .benefit-item { grid-template-columns: auto 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -86,14 +146,56 @@
   </header>
 
   <main>
-    <h1>Innowacyjność</h1>
-    <div class="tagline">Format, który wyprzedza klasyczne OOH.</div>
-    <p>
-      Połączenie technologii LED, precyzyjnego montażu w tunelu i kalibracji
-      do prędkości pociągu tworzy zupełnie nowy typ reklamy. To doświadczenie,
-      którego pasażer nie zobaczy na billboardzie ani ekranie LCD na peronie –
-      dlatego marki korzystające z LUMI RAIL zyskują wizerunek pionierów.
-    </p>
+    <div class="benefits-card">
+      <div class="benefits-card-inner">
+        <h1 class="benefits-title">Dlaczego jesteśmy najlepszym rozwiązaniem?</h1>
+
+        <div class="benefit-item">
+          <div class="benefit-number">1</div>
+          <div class="benefit-heading">Maksymalna uwaga bez konkurencji</div>
+          <div class="benefit-text">
+            W tunelu metra nie ma billboardów konkurencji, telefonów komórkowych z zasięgiem, ani innych rozpraszaczy.
+            Twoja reklama ma 100% uwagi pasażerów przez średnio 2–3 minuty przejazdu między stacjami.
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-number">2</div>
+          <div class="benefit-heading">Grupa docelowa o wysokiej sile nabywczej</div>
+          <div class="benefit-text">
+            Warszawskie metro to główny środek transportu dla miejskiej klasy średniej i wyższej.
+            500,000+ pasażerów dziennie, w tym decydenci biznesowi, specjaliści IT, i konsumenci premium.
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-number">3</div>
+          <div class="benefit-heading">Technologia, która wyróżnia marki</div>
+          <div class="benefit-text">
+            Jako pierwsi w Polsce oferujemy ten format. Marki, które z nami współpracują,
+            automatycznie pozycjonują się jako innowatorzy i liderzy technologiczni w swojej branży.
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-number">4</div>
+          <div class="benefit-heading">Mierzalne efekty i ROI</div>
+          <div class="benefit-text">
+            Oferujemy szczegółową analitykę: liczba wyświetleń, dane demograficzne pasażerów, godziny szczytu,
+            a także badania recall rate i brand awareness. Każda złotówka jest mierzalna.
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-number">5</div>
+          <div class="benefit-heading">Kompleksowa obsługa od A do Z</div>
+          <div class="benefit-text">
+            Od koncepcji kreatywnej, przez produkcję animacji, aż po monitoring kampanii.
+            Nasz zespół zajmuje się wszystkim, abyś mógł skupić się na swoim biznesie.
+          </div>
+        </div>
+      </div>
+    </div>
 
     <a href="LUMIRail.html" class="back-link">
       <span>←</span> Powrót na stronę główną
