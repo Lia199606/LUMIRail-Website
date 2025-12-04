@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Wysoka zapamiętywalność – LUMI RAIL</title>
+  <title>Jak to działa? – LUMI RAIL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
@@ -13,6 +13,7 @@
       --text-main: #e0f2fe;
       --text-muted: #9ca3af;
       --logo-yellow: #fbbf24;
+      --card-bg: #020b16;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,33 +42,98 @@
     main {
       flex: 1;
       padding: 3rem 6vw 4rem;
-      max-width: 960px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
-    h1 {
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      margin-bottom: 1rem;
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
       font-weight: 800;
+      margin-bottom: 2.5rem;
     }
 
-    .tagline {
+    .section-title span {
       color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 2rem;
     }
 
-    p {
-      font-size: 1rem;
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    .cards-grid.why {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 2.5rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, #05142b 0, var(--card-bg) 60%);
+      border-radius: 1.5rem;
+      padding: 2.5rem 2.2rem;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .step-badge {
+      position: absolute;
+      top: 1.6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .card-icon {
+      margin-top: 2.6rem;
+      margin-bottom: 1.6rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .card-icon::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: inherit;
+      border: 2px solid rgba(250, 204, 21, 0.6);
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+
+    .card-text {
+      font-size: 0.97rem;
       line-height: 1.7;
       color: var(--text-muted);
-      max-width: 720px;
+    }
+
+    .section {
+      margin-bottom: 4.5rem;
     }
 
     .back-link {
       display: inline-flex;
       align-items: center;
-      margin-top: 2.5rem;
+      margin-top: 1rem;
       text-decoration: none;
       color: var(--accent);
       font-weight: 600;
@@ -78,6 +144,22 @@
       font-size: 1.2rem;
       margin-right: 0.4rem;
     }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .cards-grid,
+      .cards-grid.why {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      main { padding-inline: 5vw; }
+      .cards-grid,
+      .cards-grid.why {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
   </style>
 </head>
 <body>
@@ -86,16 +168,108 @@
   </header>
 
   <main>
-    <h1>Wysoka zapamiętywalność</h1>
-    <div class="tagline">Ruch, światło i historia budują mocne wspomnienie.</div>
-    <p>
-      Dynamiczny obraz, zsynchronizowany z ruchem pociągu, tworzy efekt
-      krótkiego filmu oglądanego „za oknem”. Tego typu doświadczenie
-      uruchamia emocje i wyobraźnię, przez co komunikat pozostaje w pamięci
-      pasażerów znacznie dłużej niż klasyczna, statyczna ekspozycja.
-    </p>
+    <!-- JAK TO DZIAŁA -->
+    <section class="section">
+      <h1 class="section-title">Jak to <span>działa?</span></h1>
 
-    <a href="LUMIRail.html" class="back-link">
+      <div class="cards-grid">
+        <!-- 1 -->
+        <article class="card">
+          <div class="step-badge">1</div>
+          <div class="card-icon"></div>
+          <h2 class="card-title">Instalacja ekranów LED</h2>
+          <p class="card-text">
+            Rozmieszczamy wysokiej jakości ekrany LED w regularnych odstępach wzdłuż tuneli metra,
+            zapewniając pełne pokrycie tras.
+          </p>
+        </article>
+
+        <!-- 2 -->
+        <article class="card">
+          <div class="step-badge">2</div>
+          <div class="card-icon"></div>
+          <h2 class="card-title">Synchronizacja z pociągiem</h2>
+          <p class="card-text">
+            System precyzyjnie dostosowuje wyświetlanie kolejnych klatek do prędkości wagonu,
+            tworząc płynną sekwencję wizualną.
+          </p>
+        </article>
+
+        <!-- 3 -->
+        <article class="card">
+          <div class="step-badge">3</div>
+          <div class="card-icon"></div>
+          <h2 class="card-title">Efekt ruchomej animacji</h2>
+          <p class="card-text">
+            Pasażerowie widzą pełną, płynną animację reklamową przemieszczającą się wraz z pociągiem,
+            tworząc wyjątkowe doświadczenie.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- DLACZEGO TO DZIAŁA -->
+    <section class="section">
+      <h2 class="section-title">Dlaczego to <span>działa?</span></h2>
+
+      <div class="cards-grid why">
+        <article class="card">
+          <div class="card-icon"></div>
+          <h3 class="card-title">Maksymalna widoczność</h3>
+          <p class="card-text">
+            Przekaz reklamy jest widoczny dla każdej osoby jadącej metrem. Poprzez brak innych bodźców,
+            produkt trafia do najszerszej możliwej publiczności.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon"></div>
+          <h3 class="card-title">Innowacyjność</h3>
+          <p class="card-text">
+            Pierwszy tego typu format w Polsce, dzięki któremu marki zyskują status pionierów technologii
+            i większe zainteresowanie.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon"></div>
+          <h3 class="card-title">Wysoka zapamiętywalność</h3>
+          <p class="card-text">
+            Dzięki silnemu efektowi zapamiętywania, dynamiczna reklama w metrze przyciąga odbiorców
+            i zachęca ich do interakcji z marką.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon"></div>
+          <h3 class="card-title">Pełne skupienie</h3>
+          <p class="card-text">
+            100% uwagi pasażerów podczas przejazdu poprzez brak konkurencji z innymi bodźcami.
+            Zamknięta przestrzeń tunelu eliminuje rozpraszacze, kierując wzrok wprost na reklamę.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon"></div>
+          <h3 class="card-title">Precyzyjne targetowanie</h3>
+          <p class="card-text">
+            Reklama trafia do jasno określonej grupy odbiorców — aktywnych mieszkańców dużych miast.
+            Dzięki temu komunikat dociera do osób o wysokiej mobilności i dużym potencjale zakupowym.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon"></div>
+          <h3 class="card-title">Mocny efekt „wow”</h3>
+          <p class="card-text">
+            Niestandardowa forma przekazu w ruchu wyróżnia się na tle tradycyjnych formatów.
+            Efekt zaskoczenia buduje pozytywne skojarzenia z marką i zwiększa jej rozpoznawalność.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <a href="index.html" class="back-link">
       <span>←</span> Powrót na stronę główną
     </a>
   </main>
