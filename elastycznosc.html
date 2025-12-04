@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Elastyczne formaty – LUMI RAIL</title>
+  <title>Rozpocznijmy współpracę – LUMI RAIL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
@@ -13,6 +13,9 @@
       --text-main: #e0f2fe;
       --text-muted: #9ca3af;
       --logo-yellow: #fbbf24;
+      --card-bg: #020b18;
+      --field-bg: #0b1524;
+      --field-border: #1f2937;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,43 +43,115 @@
 
     main {
       flex: 1;
-      padding: 3rem 6vw 4rem;
+      padding: 2.5rem 6vw 4rem;
       max-width: 960px;
       margin: 0 auto;
     }
 
     h1 {
+      text-align: center;
       font-size: clamp(2rem, 3vw, 2.8rem);
-      margin-bottom: 1rem;
+      margin-bottom: 2.5rem;
       font-weight: 800;
     }
 
-    .tagline {
+    h1 span {
       color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 2rem;
     }
 
-    p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      max-width: 720px;
+    .form-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 24px;
+      padding: 2.5rem 2.5rem 2.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     }
 
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      margin-top: 2.5rem;
-      text-decoration: none;
-      color: var(--accent);
-      font-weight: 600;
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--field-border);
+      background: #0b1524;
+      color: var(--text-main);
       font-size: 0.95rem;
+      outline: none;
     }
 
-    .back-link span {
-      font-size: 1.2rem;
-      margin-right: 0.4rem;
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+                        linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+      background-position: calc(100% - 16px) calc(50% - 3px),
+                           calc(100% - 11px) calc(50% - 3px);
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .submit-wrap {
+      margin-top: 1.8rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      padding: 0.9rem 3.5rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #111827;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      box-shadow: 0 14px 32px rgba(250, 204, 21, 0.45);
+    }
+
+    button:hover {
+      background: #fbbf24;
+      transform: translateY(-1px);
+      box-shadow: 0 18px 36px rgba(250, 204, 21, 0.55);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 24px rgba(250, 204, 21, 0.4);
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding-inline: 1.5rem;
+      }
+
+      .form-card {
+        padding: 1.8rem 1.6rem 1.7rem;
+      }
     }
   </style>
 </head>
@@ -86,18 +161,50 @@
   </header>
 
   <main>
-    <h1>Elastyczne formaty</h1>
-    <div class="tagline">Kreacje, które łatwo zmieniasz i testujesz.</div>
-    <p>
-      Sekwencje animacji można skracać, wydłużać, podmieniać oraz testować
-      w wielu wariantach kreatywnych. Umożliwia to szybkie A/B testy,
-      sezonowe aktualizacje oraz płynne dopasowanie kampanii do innych
-      działań digital i OOH, bez konieczności kosztownej produkcji nośników.
-    </p>
+    <h1>Rozpocznijmy <span>współpracę</span></h1>
 
-    <a href="LUMIRail.html" class="back-link">
-      <span>←</span> Powrót na stronę główną
-    </a>
+    <form class="form-card">
+      <div class="form-group">
+        <label for="name">Imię i nazwisko</label>
+        <input type="text" id="name" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="company">Firma</label>
+        <input type="text" id="company" name="company">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Telefon</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+
+      <div class="form-group">
+        <label for="role">Interesuję się jako:</label>
+        <select id="role" name="role">
+          <option selected disabled>Wybierz...</option>
+          <option>Marka</option>
+          <option>Dom mediowy</option>
+          <option>Inwestor</option>
+          <option>Inne</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Wiadomość</label>
+        <textarea id="message" name="message"></textarea>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit">Wyślij zapytanie</button>
+      </div>
+    </form>
+    <a href="index.html" class="back-link"> <span>←</span> Powrót na stronę główną</a>
   </main>
 </body>
 </html>
