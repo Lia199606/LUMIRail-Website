@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Maksymalna widoczność – LUMI RAIL</title>
+  <title>Kim jesteśmy – LUMI RAIL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
@@ -13,6 +13,9 @@
       --text-main: #e0f2fe;
       --text-muted: #9ca3af;
       --logo-yellow: #fbbf24;
+      --card-bg: rgba(10, 33, 56, 0.95);
+      --card-border: rgba(148, 163, 184, 0.25);
+      --card-highlight: rgba(234, 179, 8, 0.3);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,33 +46,100 @@
     main {
       flex: 1;
       padding: 3rem 6vw 4rem;
-      max-width: 960px;
+      max-width: 1120px;
       margin: 0 auto;
     }
 
+    .section-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
     h1 {
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      margin-bottom: 1rem;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      margin-bottom: 1.25rem;
       font-weight: 800;
     }
 
-    .tagline {
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-
-    p {
+    .intro-text {
       font-size: 1rem;
       line-height: 1.7;
       color: var(--text-muted);
-      max-width: 720px;
+      max-width: 780px;
+      margin-bottom: 0.9rem;
+    }
+
+    .intro-text + .intro-text {
+      margin-top: 0.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .steps-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .step-card {
+      flex: 1 1 260px;
+      background: radial-gradient(circle at top left, var(--card-highlight), transparent 55%),
+                  var(--card-bg);
+      border-radius: 1.5rem;
+      padding: 1.75rem 1.75rem 2rem;
+      border: 1px solid var(--card-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.4;
+    }
+
+    .step-icon {
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fef9c3, #facc15 55%, #854d0e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 0 0 6px rgba(250, 204, 21, 0.08);
+    }
+
+    .step-icon span {
+      font-size: 1.5rem;
+      color: #022c22;
+    }
+
+    .step-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-text {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-muted);
     }
 
     .back-link {
       display: inline-flex;
       align-items: center;
-      margin-top: 2.5rem;
+      margin-top: 3rem;
       text-decoration: none;
       color: var(--accent);
       font-weight: 600;
@@ -80,6 +150,15 @@
       font-size: 1.2rem;
       margin-right: 0.4rem;
     }
+
+    @media (max-width: 720px) {
+      main {
+        padding-top: 2.25rem;
+      }
+      .step-card {
+        padding: 1.5rem 1.4rem 1.7rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -88,14 +167,55 @@
   </header>
 
   <main>
-    <h1>Maksymalna widoczność</h1>
-    <div class="tagline">Twoja marka w centrum uwagi przez cały przejazd.</div>
-    <p>
-      Tunel metra staje się jednym, pełnym ruchu ekranem, który przejmuje wzrok
-      pasażerów od momentu ruszenia pociągu aż do zatrzymania na stacji.
-      Dzięki temu komunikat reklamowy nie konkuruje z innymi bodźcami – jest
-      jedynym, naturalnym punktem koncentracji uwagi.
+    <div class="section-label">Kim jesteśmy?</div>
+    <h1>LumiRail – nowy wymiar reklamy w metrze</h1>
+
+    <p class="intro-text">
+      LumiRail to pionier innowacyjnej reklamy out-of-home w Polsce. Łączymy zaawansowaną technologię LED
+      z unikalnym środowiskiem metra, tworząc najbardziej angażujące doświadczenie reklamowe na polskim rynku.
     </p>
+    <p class="intro-text">
+      Nasza technologia synchronizacji obrazu z ruchem pociągu przekształca zwykły przejazd metrem
+      w niezapomnianą przygodę wizualną, która pozostaje w pamięci pasażerów na długo po zakończeniu podróży.
+    </p>
+
+    <div class="steps-grid">
+      <!-- Card 1 -->
+      <div class="step-card">
+        <div class="step-icon">
+          <span>💻</span>
+        </div>
+        <div class="step-title">Instalujemy infrastrukturę</div>
+        <div class="step-text">
+          Montujemy ekrany LED w tunelach warszawskiego metra. Każdy ekran jest precyzyjnie umieszczony,
+          aby stworzyć płynne, spójne doświadczenie wizualne dla pasażerów.
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="step-card">
+        <div class="step-icon">
+          <span>▶️</span>
+        </div>
+        <div class="step-title">Tworzymy kampanie</div>
+        <div class="step-text">
+          Projektujemy i produkujemy dynamiczne animacje reklamowe dostosowane do unikalnego formatu.
+          Nasz zespół kreatywny współpracuje z markami, aby tworzyć niezapomniane przekazy.
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="step-card">
+        <div class="step-icon">
+          <span>⏱️</span>
+        </div>
+        <div class="step-title">Synchronizujemy w czasie rzeczywistym</div>
+        <div class="step-text">
+          Wykorzystujemy zaawansowane czujniki i algorytmy AI do precyzyjnej synchronizacji wyświetlanych treści
+          z prędkością pociągu, dzięki czemu powstaje płynna, filmowa animacja.
+        </div>
+      </div>
+    </div>
 
     <a href="LUMIRail.html" class="back-link">
       <span>←</span> Powrót na stronę główną
